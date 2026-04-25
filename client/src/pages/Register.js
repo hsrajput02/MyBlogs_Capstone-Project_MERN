@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import axios from "axios";
+import API from "../services/api";
 import { useNavigate } from "react-router-dom";
 import "./Auth.css";
 
@@ -16,7 +16,7 @@ function Register() {
 
   const handleRegister = async () => {
     try {
-      await axios.post("http://myblogs-r30i.onrender.com/api/auth/register", {
+      await API.post("/auth/register", {
         name,
         email,
         password,

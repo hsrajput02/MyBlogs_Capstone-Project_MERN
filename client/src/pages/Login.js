@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import axios from "axios";
+import API from "../services/api";
 import { useNavigate } from "react-router-dom";
 import "./Auth.css";
 
@@ -7,9 +7,10 @@ function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
+
   const handleLogin = async () => {
     try {
-      const res = await axios.post("http://myblogs-r30i.onrender.com/api/auth/login", {
+      const res = await API.post("/auth/login", {
         email,
         password
       });
@@ -18,19 +19,18 @@ function Login() {
       localStorage.setItem("user", JSON.stringify(res.data.user));
 
       alert("Login Successful");
-
-      navigate("/");  // Redirect to home page after successful login
+      navigate("/");
 
     } catch (error) {
-      alert("Login Failed");
+      console.log(error.response?.data);
+      alert(error.response?.data?.message || "Login Failed");
     }
   };
-
 
   return (
     <div className="auth-container">
       <div className="auth-box">
-        <h2>Welcome Back </h2>
+        <h2>Welcome Back</h2>
         <p>Login to continue writing amazing blogs</p>
 
         <input
@@ -47,8 +47,12 @@ function Login() {
         <button onClick={handleLogin}>Login</button>
 
         <p>
-          Don't have an account?<span className="link" onClick={() => navigate("/register")}>Register here</span>
+          Don't have an account?
+          <span className="link" onClick={() => navigate("/register")}>
+            Register here
+          </span>
         </p>
+
         <p
           style={{ cursor: "pointer", color: "#0ea5a4", marginTop: "10px" }}
           onClick={() => navigate("/forgot-password")}
