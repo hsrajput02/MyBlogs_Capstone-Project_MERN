@@ -12,10 +12,26 @@
   gap: 20px;
 }
 
-/* LOGO */
-.logo {
-  color: #0ea5a4;
+/* LOGO CONTAINER */
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
   cursor: pointer;
+}
+
+/* LOGO IMAGE */
+.logo-img {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+}
+
+/* TEXT */
+.logo-text {
+  color: #0ea5a4;
+  font-size: 22px;
+  font-weight: bold;
 }
 
 /* SEARCH */
@@ -39,19 +55,30 @@
 
 .nav-links a,
 .btn {
-  margin: 0 10px;
+  margin: 0 15px;
   text-decoration: none;
   color: #333;
   cursor: pointer;
 }
 
-.nav-write{
-    color: #333;
+.nav-write {
+  color: #333;
 
 }
 
+.nav-links a,
+.nav-links span,
+.mobile-menu a,
+.mobile-menu span,
+.mobile-menu p {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
 .nav-links a:hover,
-.btn:hover,.nav-write:hover {
+.btn:hover,
+.nav-write:hover {
   color: #0ea5a4;
   cursor: pointer;
 }
@@ -106,6 +133,10 @@
   width: 150px;
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.logout {
+  color: #ef4444;
 }
 
 /* HAMBURGER */
@@ -167,6 +198,15 @@
     display: flex;
   }
 
+  .logo-img {
+    width: 30px;
+    height: 30px;
+  }
+
+  .logo-text {
+    font-size: 18px;
+  }
+
   .mobile-menu a,
   .mobile-menu span,
   .mobile-menu p {
@@ -177,17 +217,18 @@
     color: #333;
   }
 
-.nav-write {
-   width: 100%;
+  .nav-write {
+    width: 100%;
     text-align: left;
     padding: 10px 0;
     font-size: 16px;
     color: #333;
     text-decoration: underline;
-}
-.nav-write:hover {
-  cursor: pointer;
-}
+  }
+
+  .nav-write:hover {
+    cursor: pointer;
+  }
 
   /* BUTTON STYLE */
   .mobile-menu .btn {

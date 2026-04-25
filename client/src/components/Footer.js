@@ -48,7 +48,6 @@ function Footer() {
                     Join MyBlogs Today
                 </button>
             </div>
-
         </footer>
     );
 }

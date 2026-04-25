@@ -5,6 +5,7 @@ import API from "../services/api";
 import Footer from "../components/Footer";
 import { useLocation } from "react-router-dom";
 import "./Home.css";
+import { FaPen } from "react-icons/fa";
 
 function Home() {
   const navigate = useNavigate();
@@ -49,28 +50,25 @@ function Home() {
 
   return (
     <>
+
       <div className="hero">
-        <div className="hero-left">
+        <div className="hero-content">
           <h1>
-            Your Voice. Your Stories. <br />
-            <span>Beautifully Published.</span>
+            Write.<br />
+            Share.<br />
+            <span>Inspire.</span>
           </h1>
 
           <p>
-            The modern platform for writers, creators, and every story that matters.
+            MyBlogs is a platform for writers and readers to connect, share ideas, and inspire the world.
           </p>
-
           <button className="hero-btn" onClick={() => {
             if (checkAuthAndRedirect()) {
               navigate("/create");
             }
           }}>
-            Start Writing for Free
+           <FaPen/> Start Writing for Free
           </button>
-        </div>
-
-        <div className="hero-right">
-          <img src="/hero-image.png" alt="hero" />
         </div>
       </div>
 

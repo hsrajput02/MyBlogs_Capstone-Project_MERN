@@ -1,38 +1,32 @@
-/* HERO */
 .hero {
+  position: relative;
+  height: 60vh;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 50px;
-  background: #e3e3e3;
-  margin-bottom: 10px;
-  flex-wrap: wrap;
-  gap: 20px;
+  padding: 60px;
+  /* BACKGROUND IMAGE */
+  background: url("/public/hero.png") no-repeat right center;
+  background-size: cover;
 }
 
-.hero-left {
-  flex: 1;
-  min-width: 280px;
+/* CONTENT */
+.hero-content {
+  max-width: 500px;
+  z-index: 2;
 }
 
-.hero-left h1 {
-  font-size: 40px;
+.hero-content h1 {
+  font-size: 42px;
+  line-height: 1.2;
 }
 
-.hero-left span {
+.hero-content span {
   color: #0ea5a4;
 }
 
-.hero-right {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-}
-
-.hero-right img {
-  width: 100%;
-  max-width: 350px;
-  border-radius: 12px;
+.hero-content p {
+  margin-top: 15px;
+  color: #464646;
 }
 
 .hero-btn {
@@ -42,7 +36,31 @@
   color: white;
   border: none;
   border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  cursor: pointer;
 }
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 60%;
+  height: 100%;
+
+  background: linear-gradient(
+    to right,
+    #f8f8f8 40%,
+    rgba(248, 248, 248, 0.85) 70%,
+    rgba(248, 248, 248, 0) 100%
+  );
+
+  z-index: 1;
+}
+
 
 /* FEATURES */
 .features {
@@ -61,7 +79,7 @@
   flex-direction: column;
   align-items: center;
   gap: 8px;
-  width: 200px;
+  width: 150px;
   padding: 20px;
   background: white;
   border-radius: 12px;
@@ -136,32 +154,33 @@
 /* Mobile */
 @media (max-width: 768px) {
   .hero {
-    flex-direction: column;
+    padding: 30px 20px;
+    background-position-x: 25%;
     text-align: center;
+    height: 45vh;
   }
 
-  .hero-left h1 {
-    font-size: 26px;
+  .hero::before {
+    display: none; 
   }
-
-  .hero-btn {
-    width: 100%;
-  }
-
-  .features {
+  .hero-content {
+    max-width: 100%;
+     display: flex;
+    align-items: center;
+    justify-content: center;
     flex-direction: column;
+
   }
 
-  .feature-card {
-    width: 90%;
-  }
 
-  .posts-container {
-    max-height: none; 
-    height: auto;
+  .hero-content h1 {
+    font-size: 32px;
+  }
+  .hero-content p{
+    font-size: 14px;
+    color: black;
   }
 }
-
 /* Small Mobile */
 @media (max-width: 480px) {
   .hero-left h1 {
