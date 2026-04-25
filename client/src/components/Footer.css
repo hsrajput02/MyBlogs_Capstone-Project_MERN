@@ -1,61 +1,124 @@
 .footer {
-    display: flex;
-    justify-content: space-between;
-    padding: 40px 60px;
-    background: #f5fbfb;
-    border-top: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
+  padding: 40px 60px;
+  background: #f5fbfb;
+  border-top: 1px solid #eee;
+  flex-wrap: wrap; 
+  gap: 20px;
 }
 
 /* LEFT */
 .footer-left {
-    max-width: 250px;
+  max-width: 250px;
 }
 
 .logo {
-    color: #0ea5a4;
+  color: #0ea5a4;
 }
 
 .footer-left p {
-    color: #666;
+  color: #666;
 }
 
 /* LINKS */
 .footer-links {
-    display: flex;
-    gap: 60px;
+  display: flex;
+  gap: 60px;
+  flex-wrap: wrap;
 }
 
 .footer-links h4 {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 .footer-links p {
-    margin: 5px 0;
-    color: #555;
-    cursor: pointer;
+  margin: 5px 0;
+  color: #555;
+  cursor: pointer;
 }
 
 /* RIGHT */
 .footer-right {
-    text-align: right;
+  text-align: right;
+}
+
+/* SOCIAL */
+.socials {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
 }
 
 .socials svg {
-    padding: 8px;
-    font-size: 18px;
-    cursor: pointer;
+  padding: 8px;
+  font-size: 18px;
+  cursor: pointer;
 }
 
 .socials svg:hover {
-    color: #0ea5a4;
+  color: #0ea5a4;
 }
 
 .footer-btn {
-    margin-top: 15px;
-    padding: 10px 15px;
-    background: #0ea5a4;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
+  margin-top: 15px;
+  padding: 10px 15px;
+  background: #0ea5a4;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* RESPONSIVE DESIGN */
+
+/* Tablet */
+@media (max-width: 992px) {
+  .footer {
+    padding: 30px;
+  }
+
+  .footer-links {
+    gap: 30px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .footer {
+    flex-direction: column; 
+    text-align: center;
+    align-items: center;
+  }
+
+  .footer-left {
+    max-width: 100%;
+  }
+
+  .footer-links {
+    justify-content: center;
+    gap: 30px;
+  }
+
+  .footer-right {
+    text-align: center;
+  }
+
+  .socials {
+    justify-content: center;
+  }
+
+  .footer-btn {
+    width: 100%;
+    max-width: 250px;
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+  .footer-links {
+    flex-direction: column; 
+    align-items: center;
+    gap: 20px;
+  }
 }

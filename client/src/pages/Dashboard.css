@@ -1,7 +1,8 @@
+/* CONTAINER */
 .dashboard-container {
   display: flex;
   margin-top: 10px;
-  height: 100vh;
+  min-height: 100vh;
   background: #f5fbfb;
 }
 
@@ -11,12 +12,7 @@
   background: white;
   padding: 20px;
   border-right: 1px solid #eee;
-}
-
-.logo {
-  color: #0ea5a4;
-  margin-bottom: 30px;
-  cursor: pointer;
+  flex-shrink: 0;
 }
 
 .menu p {
@@ -42,36 +38,18 @@
   flex-direction: column;
 }
 
-/* TOPBAR */
-.topbar {
-  display: flex;
-  justify-content: space-between;
-  padding: 15px 25px;
-  background: white;
-  border-bottom: 1px solid #eee;
-}
-
-.topbar input {
-  width: 300px;
-  padding: 10px;
-  border-radius: 8px;
-  border: 1px solid #ddd;
-}
-
-.profile {
-
-  color: rgb(0, 0, 0);
-  padding: 8px 12px;
-}
-
 /* CONTENT */
 .content {
   padding: 30px;
 }
 
+/* HEADER */
 .header {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap; 
+  gap: 10px;
   margin-bottom: 20px;
 }
 
@@ -81,6 +59,7 @@
   border: none;
   border-radius: 6px;
   cursor: pointer;
+  padding: 8px 12px;
 }
 
 /* POSTS */
@@ -90,11 +69,19 @@
   padding: 10px;
 }
 
+/* POST ROW */
 .post-row {
   display: flex;
   justify-content: space-between;
   padding: 15px;
   border-bottom: 1px solid #eee;
+  gap: 10px;
+  flex-wrap: wrap; 
+}
+
+.post-info {
+  flex: 1;
+  min-width: 200px;
 }
 
 .post-info h4 {
@@ -105,19 +92,20 @@
   display: flex;
   align-items: center;
   gap: 10px;
+  flex-wrap: wrap; 
 }
 
 .post-actions button {
   border: none;
   background: ghostwhite;
   border: 0.5px solid #b4b4b4;
-  border-radius: 2px;
-  padding: 5px;
+  border-radius: 4px;
+  padding: 5px 8px;
   cursor: pointer;
 }
 
 .post-actions button:hover {
-  transform: scale(1.2);
+  transform: scale(1.1);
 }
 
 .edit-btn {
@@ -126,4 +114,77 @@
 
 .delete-btn {
   color: #ef4444;
+}
+
+/* RESPONSIVE DESIGN */
+/* Tablet */
+@media (max-width: 992px) {
+  .sidebar {
+    width: 180px;
+    padding: 15px;
+  }
+
+  .content {
+    padding: 20px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .dashboard-container {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    border-right: none;
+    border-bottom: 1px solid #eee;
+  }
+
+  .menu {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .menu p {
+    margin: 5px;
+    padding: 8px;
+    font-size: 14px;
+  }
+
+  .content {
+    padding: 15px;
+  }
+
+  .post-row {
+    flex-direction: column;
+  }
+
+  .post-actions {
+    justify-content: space-between;
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .header button {
+    width: 100%;
+  }
+
+  .post-actions {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .post-actions button {
+    width: 100%;
+  }
 }

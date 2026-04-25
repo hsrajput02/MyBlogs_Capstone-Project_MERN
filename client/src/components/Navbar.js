@@ -1,12 +1,13 @@
 import React, { useState, useRef, useEffect } from "react";
+import { FaUserCircle, FaBars, FaTimes } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import { FaUserCircle } from "react-icons/fa";
 import "./Navbar.css";
 
 function Navbar() {
     const [open, setOpen] = useState(false);
     const dropdownRef = useRef(null);
+    const [menuOpen, setMenuOpen] = useState(false);
     const [search, setSearch] = useState("");
     const user = JSON.parse(localStorage.getItem("user"));
     const navigate = useNavigate();
@@ -32,81 +33,106 @@ function Navbar() {
     }, []);
 
     return (
-        <nav className="navbar">
-            <h2 className="logo" onClick={() => navigate("/")}>MyBlogs</h2>
-            <input className="search-input"
-                type="text"
-                placeholder="Search blogs..."
-                value={search}
-                onChange={(e) => setSearch(e.target.value)}
-                onKeyDown={(e) => {
-                    if (e.key === "Enter") {
-                        navigate(`/?search=${search}`);
-                    }
-                }}
-            />
-            <div className="nav-links">
-                <Link to="/">Home</Link>
-                <a href="#posts">Explore</a>
-                <span
-                    className="btn"
-                    onClick={() => {
-                        const token = localStorage.getItem("token");
+  <nav className="navbar">
 
-                        if (!token) {
-                            navigate("/register");
-                        } else {
-                            navigate("/create");
-                        }
-                    }}
-                >
-                    Write
-                </span>
-                <a href="#about">About</a>
+    {/* LOGO */}
+    <h2 className="logo" onClick={() => navigate("/")}>MyBlogs</h2>
 
+    {/* SEARCH */}
+    <input
+      className="search-input"
+      type="text"
+      placeholder="Search blogs..."
+      value={search}
+      onChange={(e) => setSearch(e.target.value)}
+      onKeyDown={(e) => {
+        if (e.key === "Enter") {
+          navigate(`/?search=${search}`);
+        }
+      }}
+    />
+
+    {/* DESKTOP NAV */}
+    <div className="nav-links desktop">
+      <Link to="/">Home</Link>
+      <a href="#posts">Explore</a>
+      <span className="nav-write"
+        onClick={() => {
+          const token = localStorage.getItem("token");
+          if (!token) navigate("/register");
+          else navigate("/create");
+        }}
+      >
+        Write
+      </span>
+      <a href="#about">About</a>
+    </div>
+
+    <div className="nav-buttons desktop">
+      {user ? (
+        <div className="profile-container" ref={dropdownRef}>
+          <div className="profile" onClick={() => setOpen(!open)}>
+            <FaUserCircle className="profile-icon" />
+            <span>{user.name}</span>
+          </div>
+
+          {open && (
+            <div className="dropdown">
+              <p onClick={() => navigate("/profile")}>My Profile</p>
+              <p onClick={() => navigate("/dashboard")}>Dashboard</p>
+              <p onClick={handleLogout} className="logout">Logout</p>
             </div>
+          )}
+        </div>
+      ) : (
+        <>
+          <Link to="/login" className="login">Login</Link>
+          <Link to="/register" className="btn">Get Started</Link>
+        </>
+      )}
+    </div>
 
-            <div className="nav-buttons">
-                {user ? (
-                    <>
-                        <div className="profile-container" ref={dropdownRef}>
-                            <div
-                                className="profile"
-                                onClick={() => setOpen(!open)}
-                            >
-                                <FaUserCircle className="profile-icon" />
-                                <span>{user.name}</span>
-                            </div>
+    {/* HAMBURGER */}
+    <div className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
+      {menuOpen ? <FaTimes /> : <FaBars />}
+    </div>
 
-                            {open && (
-                                <div className="dropdown">
-                                    <p onClick={() => navigate("/profile")}>
-                                        My Profile
-                                    </p>
+    {/* MOBILE MENU  */}
+    <div className={`mobile-menu ${menuOpen ? "active" : ""}`}>
 
-                                    <p onClick={() => navigate("/dashboard")}>
-                                        Dashboard
-                                    </p>
+      <Link to="/" onClick={() => setMenuOpen(false)}>Home</Link>
+      <a href="#posts" onClick={() => setMenuOpen(false)}>Explore</a>
 
-                                    <p>Settings</p>
+      <span className="nav-write"
+        onClick={() => {
+          setMenuOpen(false);
+          const token = localStorage.getItem("token");
+          if (!token) navigate("/register");
+          else navigate("/create");
+        }}
+      >
+        Write
+      </span>
 
-                                    <p onClick={handleLogout} className="logout">
-                                        Logout
-                                    </p>
-                                </div>
-                            )}
+      <a href="#about" onClick={() => setMenuOpen(false)}>About</a>
 
-                        </div>
-                    </>
-                ) : (
-                    <>
-                        <Link to="/login" className="login">Login</Link>
-                        <Link to="/register" className="btn">Get Started</Link>
-                    </>
-                )}
-            </div>
-        </nav>
-    );
+      {user ? (
+        <>
+          <p onClick={() => navigate("/profile")}>My Profile</p>
+          <p onClick={() => navigate("/dashboard")}>Dashboard</p>
+          <p onClick={handleLogout} className="logout">Logout</p>
+        </>
+      ) : (
+        <>
+          <Link to="/login" className="login">Login</Link>
+          <Link to="/register" className="btn">Get Started</Link>
+        </>
+      )}
+
+    </div>
+
+  </nav>
+);
 }
 
 export default Navbar;
