@@ -151,8 +151,3 @@ Frontend can be deployed using Vercel.
 Backend can be deployed using Render.
 MongoDB Atlas is used as the cloud database.
 
----
-
-## Author
-
-Harpal Singh Lodhi
