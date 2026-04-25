@@ -1,0 +1,129 @@
+.dashboard-container {
+  display: flex;
+  margin-top: 10px;
+  height: 100vh;
+  background: #f5fbfb;
+}
+
+/* SIDEBAR */
+.sidebar {
+  width: 220px;
+  background: white;
+  padding: 20px;
+  border-right: 1px solid #eee;
+}
+
+.logo {
+  color: #0ea5a4;
+  margin-bottom: 30px;
+  cursor: pointer;
+}
+
+.menu p {
+  margin: 12px 0;
+  padding: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.menu p:hover {
+  background: #f1f5f9;
+}
+
+.menu .active {
+  background: #0ea5a4;
+  color: white;
+}
+
+/* MAIN */
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* TOPBAR */
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 25px;
+  background: white;
+  border-bottom: 1px solid #eee;
+}
+
+.topbar input {
+  width: 300px;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+.profile {
+
+  color: rgb(0, 0, 0);
+  padding: 8px 12px;
+}
+
+/* CONTENT */
+.content {
+  padding: 30px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.header button {
+  background: #0ea5a4;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* POSTS */
+.post-list {
+  background: white;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.post-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px;
+  border-bottom: 1px solid #eee;
+}
+
+.post-info h4 {
+  margin: 0;
+}
+
+.post-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.post-actions button {
+  border: none;
+  background: ghostwhite;
+  border: 0.5px solid #b4b4b4;
+  border-radius: 2px;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.post-actions button:hover {
+  transform: scale(1.2);
+}
+
+.edit-btn {
+  color: #0ea5a4;
+}
+
+.delete-btn {
+  color: #ef4444;
+}

@@ -1,0 +1,103 @@
+.auth-container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f5fbfb;
+}
+
+.auth-box {
+  background: white;
+  padding: 40px;
+  width: 350px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.auth-box h2 {
+  margin-bottom: 10px;
+}
+
+.auth-box p {
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.auth-box input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  outline: none;
+}
+
+.auth-box input:focus {
+  border-color: #0ea5a4;
+}
+
+.auth-box button {
+  width: 100%;
+  padding: 10px;
+  background: #0ea5a4;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.auth-box button:hover {
+  background: #0c8b8a;
+}
+
+.auth-box .link {
+  color: #0ea5a4;
+  cursor: pointer;
+}
+
+.register-container .auth-box {
+  width: 400px;
+  margin-top: 250px;
+}
+/* SECTION */
+.gender-section {
+  margin: 15px 0;
+}
+
+.label {
+  display: flex;
+  align-items: start;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+/* OPTIONS */
+.gender-options {
+  display: flex;
+  gap: 10px;
+}
+
+/* CARD STYLE */
+.gender-card {
+  flex: 1;
+  padding: 6px;
+  text-align: center;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* HOVER */
+.gender-card:hover {
+  border-color: #0ea5a4;
+}
+
+/* ACTIVE */
+.gender-card.active {
+  background: #0ea5a4;
+  color: white;
+  border-color: #0ea5a4;
+}

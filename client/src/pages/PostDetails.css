@@ -1,0 +1,21 @@
+.post-page {
+    padding: 40px;
+    max-width: 800px;
+    margin: auto;
+}
+
+.close-btn {
+    background: #ef4444;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+.full-content {
+    line-height: 1.6;
+    white-space: pre-line;
+    color: #444;
+}
