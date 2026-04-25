@@ -10,20 +10,23 @@ function Dashboard() {
   const user = JSON.parse(localStorage.getItem("user"));
   const token = localStorage.getItem("token");
 
-  // Fetch posts
+ useEffect(() => {
   const fetchPosts = async () => {
-    const res = await API.get("/posts");
+    try {
+      const res = await API.get("/posts");
 
-    const myPosts = res.data.filter(
-      (post) => post.author?._id === user.id
-    );
+      const myPosts = res.data.filter(
+        (post) => post.author?._id === user.id
+      );
 
-    setPosts(myPosts);
+      setPosts(myPosts);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
-  useEffect(() => {
-    fetchPosts();
-  }, []);
+  fetchPosts();
+}, [user.id]);
 
   // View
   const handleView = (post) => {
